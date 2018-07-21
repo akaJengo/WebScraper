@@ -2,7 +2,7 @@ from lxml import html
 import requests
 
 def main():
-    sign_in = 'https://www.quantopian.com/signin'
+    sign_in = '<URL>'
 
     #Starts Session
     session_requests = requests.session()
@@ -13,8 +13,8 @@ def main():
     authenticity_token = list(set(tree.xpath("//input[@name='authenticity_token']/@value")))[0]
     
     #The Payload
-    EMAIL = "vippeyman54@gmail.com"
-    PASSWORD = "Download1"
+    EMAIL = "<USER_EMAIL>"
+    PASSWORD = "<PASSWORD>"
 
     payload = {
         "user[email]": EMAIL, 
@@ -37,7 +37,7 @@ def main():
 
 
     #Content Scrape, this is the easy part
-    url = 'https://www.quantopian.com/live_algorithms/5adb2e907455af3b8fd5cc8f'
+    url = '<URL OF SCRAPE>'
     result = session_requests.get(
         url, 
         headers = dict(referer = url)
